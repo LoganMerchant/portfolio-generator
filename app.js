@@ -15,12 +15,28 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'What is your name?',
+            message: 'What is your name? (REQUIRED)',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your name!');
+                    return false;
+                };
+            },
         },
         {
             type: 'input',
             name: 'github',
-            message: 'Enter your GitHub username.',
+            message: 'Enter your GitHub username. (REQUIRED)',
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your GitHub username!');
+                    return false;
+                };
+            },
         },
         {
             type: 'input',
@@ -45,12 +61,28 @@ const promptProject = portfolioData => {
         {
             type: 'input',
             name: 'name',
-            message: "What is your project's name?",
+            message: "What is your project's name? (REQUIRED)",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your project name!");
+                    return false;
+                };
+            },
         },
         {
             type: 'input',
             name: 'description',
             message: 'Give a description of the project (REQUIRED)',
+            validate: descriptionInput => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log('Please give a description of the project!');
+                    return false;
+                };
+            },
         },
         {
             type: 'checkbox',
@@ -62,6 +94,14 @@ const promptProject = portfolioData => {
             type: 'input',
             name: 'link',
             message: 'Enter the GitHub link to this project. (REQUIRED)',
+            validate: linkInput => {
+                if (linkInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a GitHub link for this project!');
+                    return false; 
+                };
+            },
         },
         {
             type: 'confirm',
